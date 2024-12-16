@@ -1,4 +1,4 @@
-package br.com.justkac.codechella.controller;
+package br.com.justkac.codechella.naousar.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.justkac.codechella.model.entity.Usuario;
-import br.com.justkac.codechella.model.service.UsuarioService;
+import br.com.justkac.codechella.naousar.model.entity.Usuario;
+import br.com.justkac.codechella.naousar.model.service.UsuarioService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
