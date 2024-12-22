@@ -17,8 +17,27 @@ public class UsuarioTest {
 
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> new Usuario(null, "Fulano", LocalDate.parse("2000-01-01"), "dev@dev.com"));
+
     }
 
+    @Test
+    public void naoDeveCadastrarUsuarioComIdadeInferiorA18Anos() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new Usuario("123.456.789-00", "Fulano", LocalDate.parse("2020-01-01"), "dev@dev.com"));
+    }
+
+    @Test
+    public void naoDeveCadastrarUsuarioComEmailInvalido() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new Usuario("123.456.789-00", "Fulano", LocalDate.parse("2000-01-01"), "dev@dev"));
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new Usuario("123.456.789-00", "Fulano", LocalDate.parse("2000-01-01"), "dev@dev."));
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new Usuario("123.456.789-00", "Fulano", LocalDate.parse("2000-01-01"), "dev@dev.c"));
+    }
+    
     @Test
     public void deveCriarUsuarioUsandoFabridaDeUsuarii() {
         FabricaDeUsuario fabrica = new FabricaDeUsuario();
