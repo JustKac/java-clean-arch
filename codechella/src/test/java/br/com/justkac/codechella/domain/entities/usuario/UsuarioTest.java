@@ -19,4 +19,20 @@ public class UsuarioTest {
                 () -> new Usuario(null, "Fulano", LocalDate.parse("2000-01-01"), "dev@dev.com"));
     }
 
+    @Test
+    public void deveCriarUsuarioUsandoFabridaDeUsuarii() {
+        FabricaDeUsuario fabrica = new FabricaDeUsuario();
+        Usuario usuario = fabrica.comNomeCpfNascimento("Fulano", "123.456.789-00", LocalDate.parse("2000-01-01"));
+
+        Assertions.assertEquals("Fulano", usuario.getNome());
+        Assertions.assertEquals("123.456.789-00", usuario.getCpf());
+        Assertions.assertEquals(LocalDate.parse("2000-01-01"), usuario.getNascimento());
+
+        usuario = fabrica.incluiEndereco("12345-678", 123, "Casa");
+        
+        Assertions.assertEquals("12345-678", usuario.getEndereco().getCep());
+        Assertions.assertEquals(123, usuario.getEndereco().getNumero());
+        Assertions.assertEquals("Casa", usuario.getEndereco().getComplemento());
+    }
+
 }

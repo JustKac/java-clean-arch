@@ -2,6 +2,8 @@ package br.com.justkac.codechella.domain.entities.usuario;
 
 import java.time.LocalDate;
 
+import br.com.justkac.codechella.domain.Endereco;
+
 public class Usuario {
 
     private String cpf;
@@ -9,7 +11,7 @@ public class Usuario {
     private LocalDate nascimento;
     private String email;
 
-    
+    private Endereco endereco;
 
     public Usuario(String cpf, String nome, LocalDate nascimento, String email) {
 
@@ -53,5 +55,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }
