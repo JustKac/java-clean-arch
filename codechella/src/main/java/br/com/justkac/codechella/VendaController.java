@@ -22,7 +22,7 @@ public class VendaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroVenda dadosVenda, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<DadosVenda> cadastrar(@RequestBody @Valid DadosCadastroVenda dadosVenda, UriComponentsBuilder uriBuilder) {
         DadosVenda venda = service.cadastrarVenda(dadosVenda);
         var uri = uriBuilder.path("/vendas/{id}").buildAndExpand(venda.id()).toUri();
 

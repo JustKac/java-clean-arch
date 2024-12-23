@@ -22,7 +22,7 @@ public class EventoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroEvento dadosCadastro, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<DadosEvento> cadastrar(@RequestBody @Valid DadosCadastroEvento dadosCadastro, UriComponentsBuilder uriBuilder) {
         DadosEvento dadosEvento = service.cadastrarEvento(dadosCadastro);
         var uri = uriBuilder.path("/eventos/{id}").buildAndExpand(dadosEvento.id()).toUri();
         return ResponseEntity.created(uri).body(dadosEvento);
