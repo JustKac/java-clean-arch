@@ -1,7 +1,5 @@
 package br.com.justkac.codechella.infra.gateways;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import br.com.justkac.codechella.application.gateways.RepositorioDeUsuario;
