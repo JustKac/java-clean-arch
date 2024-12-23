@@ -41,7 +41,7 @@ public class UsuarioTest {
     @Test
     public void deveCriarUsuarioUsandoFabridaDeUsuarii() {
         FabricaDeUsuario fabrica = new FabricaDeUsuario();
-        Usuario usuario = fabrica.comNomeCpfNascimento("Fulano", "123.456.789-00", LocalDate.parse("2000-01-01"));
+        Usuario usuario = fabrica.comNomeCpfNascimentoEmail("Fulano", "123.456.789-00", LocalDate.parse("2000-01-01"), "dev@dev.com");
 
         Assertions.assertEquals("Fulano", usuario.getNome());
         Assertions.assertEquals("123.456.789-00", usuario.getCpf());
